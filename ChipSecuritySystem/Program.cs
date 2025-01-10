@@ -57,7 +57,7 @@ namespace ChipSecuritySystem
                 chipSet.Add(chip);
                 if (FindChain(chip, chipSet))
                 {
-                    Console.WriteLine("Sequence\n----");
+                    Console.WriteLine("Sequence\n--");
 
                     foreach (var c in chipSet)
                     {
