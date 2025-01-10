@@ -17,7 +17,7 @@ namespace ChipSecuritySystem
         {
 	    // Clear console and display options
             Console.Clear();
-            Console.WriteLine("Chips Required to Unlock Master Panel\n");
+            Console.WriteLine("Chips Required to Unlock Panel\n");
             Console.WriteLine("1. Manually enter chips.");
             Console.WriteLine("2. Use example chips: [Blue, Yellow] [Red, Green] [Yellow, Red] [Orange, Purple].");
             
