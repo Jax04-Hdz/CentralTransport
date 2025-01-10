@@ -9,7 +9,6 @@ namespace ChipSecuritySystem
    internal class Program
     {
 	private static readonly List<ColorChip> Chips = new List<ColorChip>();
-        // Random number generator
         private static readonly Random Rand = new Random();
 
 
@@ -19,27 +18,22 @@ namespace ChipSecuritySystem
 	    // Clear console and display options
             Console.Clear();
             Console.WriteLine("Chips Required to Unlock Master Panel\n");
-            Console.WriteLine("1. Try your luck with randomly generated chips.");
-            Console.WriteLine("2. Manually enter chips.");
-            Console.WriteLine("3. Use example chips: [Blue, Yellow] [Red, Green] [Yellow, Red] [Orange, Purple].");
+            Console.WriteLine("1. Manually enter chips.");
+            Console.WriteLine("2. Use example chips: [Blue, Yellow] [Red, Green] [Yellow, Red] [Orange, Purple].");
             
             int option;
-            while (!int.TryParse(Console.ReadLine(), out option) || (option != 1 && option != 2 && option != 3))
+            while (!int.TryParse(Console.ReadLine(), out option) || (option != 1 && option != 2))
             {
-                Console.WriteLine("Invalid input. Please enter 1, 2 or 3.");
+                Console.WriteLine("Invalid input. Please enter 1 or 2.");
             }
             
             switch (option)
             {
                 case 1:
-                    // Generate random chips
-                    GenerateChips();
-                    break;
-                case 2:
                     // Get user input for chips
                     InputChips();
                     break;
-                case 3:
+                case 2:
                     // Generate Sample Chips
                     Chips.Add(new ColorChip(Color.Blue, Color.Yellow));
                     Chips.Add(new ColorChip(Color.Red, Color.Green));
@@ -54,7 +48,7 @@ namespace ChipSecuritySystem
             {
                 Console.WriteLine("[" + chip + "]");
             }
-            Console.WriteLine(); // New line
+            Console.WriteLine();
 
             var chipSet = new HashSet<ColorChip>();
 
@@ -79,15 +73,7 @@ namespace ChipSecuritySystem
 	    Console.WriteLine(Constants.ErrorMessage + "!\n");
         }
 
-        private static void GenerateChips()
-        {
-            for (var i = 0; i < 4; i++)
-            {
-                var startColor = (Color)Rand.Next(0, 6);
-                var endColor = (Color)Rand.Next(0, 6);
-                Chips.Add(new ColorChip(startColor, endColor));
-            }
-        }
+       
 
         private static void InputChips()
         {
